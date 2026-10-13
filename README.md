@@ -23,9 +23,9 @@ classDiagram
         -int __hambre
         -int __energia
         +hambre() int
-        +hambre(nuevo_valor int)
+        +hambre(nuevo_valor: int)
         +energia() int
-        +energia(nuevo_valor int)
+        +energia(nuevo_valor: int)
         +alimentar()
         +jugar()
         +dormir()
@@ -36,8 +36,8 @@ classDiagram
         +String especialidad
         #int _nivel_entrenamiento
         +List~String~ trucos_aprendidos
-        +entrenar_truco(truco String)
+        +entrenar_truco(truco: String)
         +ver_estado()
     }
 
-    MascotaVirtual -- MascotaEntrenada  Herencia  Generalización
+    MascotaVirtual <|-- MascotaEntrenada : Herencia
