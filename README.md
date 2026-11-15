@@ -15,29 +15,34 @@ Este proyecto amplía el sistema de mascotas virtuales aplicando conceptos avanz
 
 ```mermaid
 classDiagram
+    class Truco {
+        +nombre: str
+        -__dificultad: int
+        +dificultad: int
+        +ejecutar(nombre_mascota) str
+    }
     class MascotaVirtual {
-        +String nombre
-        +String especie
-        #int _edad
-        +String color
-        -int __hambre
-        -int __energia
-        +hambre() int
-        +hambre(nuevo_valor: int)
-        +energia() int
-        +energia(nuevo_valor: int)
+        +nombre: str
+        +especie: str
+        #_edad: int
+        +color: str
+        -__hambre: int
+        -__energia: int
+        +hambre: int
+        +energia: int
         +alimentar()
         +jugar()
         +dormir()
         +ver_estado()
     }
-
     class MascotaEntrenada {
-        +String especialidad
-        #int _nivel_entrenamiento
-        +List~String~ trucos_aprendidos
-        +entrenar_truco(truco: String)
+        +especialidad: str
+        #_nivel_entrenamiento: int
+        +trucos_aprendidos: list~Truco~
+        +entrenar_truco(nombre_truco, dificultad)
+        +mostrar_truco(nombre_truco)
         +ver_estado()
     }
-
-    MascotaVirtual <|-- MascotaEntrenada : Herencia
+    MascotaVirtual <|-- MascotaEntrenada : herencia
+    MascotaEntrenada "1" *-- "0..*" Truco : composición
+```
