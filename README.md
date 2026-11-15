@@ -5,9 +5,12 @@ Este proyecto amplía el sistema de mascotas virtuales aplicando conceptos avanz
 
 ## Características
 
-- Encapsulamiento Atributos privados (`__hambre`, `__energia`) protegidos con Getters y Setters `@property` que validan rangos de 0 a 100.
-- Herencia Subclase `MascotaEntrenada` que extiende a `MascotaVirtual` reutilizando atributos con `super()` y añadiendo nuevos atributos propios (`especialidad`, `trucos_aprendidos`).
-- Polimorfismo Sobrescritura (`override`) del método `ver_estado()` en la subclase para mostrar información extendida.
+- **Encapsulamiento:** Atributos privados (`__hambre`, `__energia`) protegidos con Getters y Setters `@property` que validan rangos de 0 a 100. La clase `Truco` también encapsula su atributo `__dificultad`, validado entre 1 y 5.
+- **Herencia:** Subclase `MascotaEntrenada` que extiende a `MascotaVirtual` reutilizando atributos con `super()` y añadiendo nuevos atributos propios (`especialidad`, `trucos_aprendidos`).
+- **Polimorfismo:** Sobrescritura (`override`) del método `ver_estado()` en la subclase para mostrar información extendida. En `main.py` se recorre una lista de mascotas de distinto tipo llamando al mismo método.
+- **Composición:** Relación "tiene-un" entre `MascotaEntrenada` y la clase auxiliar `Truco`. La mascota almacena una lista de objetos `Truco` en `trucos_aprendidos` y delega en ellos la ejecución mediante `mostrar_truco()`, que invoca `Truco.ejecutar()`.
+- **Modularización:** Código separado en dos módulos: `modelos.py` (todas las clases: `Truco`, `MascotaVirtual`, `MascotaEntrenada`) y `main.py` (importaciones, instanciación de objetos y pruebas de ejecución).
+
 
 ---
 
